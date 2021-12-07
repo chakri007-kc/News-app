@@ -16,7 +16,7 @@ const Trending = () => {
         // console.log(res.data.articles);
         setheadlines(res.data.articles);
         setloading(true)
-        console.log(headlines)
+        // console.log(headlines)
     }
     useEffect( () => {
         populateHeadlines();

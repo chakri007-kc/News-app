@@ -1,5 +1,6 @@
 import React from 'react'
 import './card.css'
+import axios from 'axios'
 const Card = ({headline}) => {
     
     var s=headline.url;
@@ -15,6 +16,22 @@ const Card = ({headline}) => {
     if(headline.urlToImage === "" || headline.urlToImage === null ){
         headline.urlToImage = "https://findlogovector.com/wp-content/uploads/2018/07/headline-news-logo-vector.png"
     }
+
+
+    const onAdd = async(e) => {
+        e.preventDefault();
+
+        const article = headline;
+        article.card = "1";
+        const res = await axios.post("http://localhost:5050/articles/add",article ,{
+            headers: {
+                "auth-token" : localStorage.getItem("token")
+            },
+        });
+        console.log(res.data.status);
+    }
+
+
     return (
         <div>
             <img className="cardimg" src={headline.urlToImage} alt={headline.source.name}/>
@@ -27,6 +44,7 @@ const Card = ({headline}) => {
             <button type="button" > 
                 <a href={headline.url} rel="noreferrer" target="_blank" >View More...</a>
             </button>
+            { headline._id === undefined && <input type="button" value ="ADD" onClick={onAdd} />}
         </div>
     )
 }

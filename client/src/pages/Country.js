@@ -14,7 +14,7 @@ const Country = () => {
         // console.log(res.data.articles);
         setcountry(res.data.articles);
         setloading(true)
-        console.log(country)
+        // console.log(country)
     }
     useEffect( () => {
         populateHeadlines();
