@@ -1,8 +1,8 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-
+import './register.css'
 
 
 const Login = () => {
@@ -24,6 +24,7 @@ const Login = () => {
             localStorage.setItem('token',res.data.token)
             alert('login successful')
             navigate(`/`);
+            window.location.reload()
         }
         else{
             alert(res.data.status)
@@ -33,12 +34,13 @@ const Login = () => {
 
 
     return (
-        <div>
-            <h1>Login</h1>
+        <div className='login'>
+            <h1 className="title1">Login</h1>
             <form onSubmit={loginUser}>
-                <input type="text" placeholder="email" value={email} onChange={(e)=> setemail(e.target.value)} /> <br/>
-                <input type="password" placeholder="password" value={password} onChange={(e)=> setpassword(e.target.value)} /> <br/>
-                <input type="submit" value="Login"/>
+                <input className='email-1' type="text" placeholder="email" size={30} value={email} onChange={(e)=> setemail(e.target.value)} /> <br/>
+                <input className='password' type="password" placeholder="password" size={30} value={password} onChange={(e)=> setpassword(e.target.value)} /> <br/>
+                <h3 className='shift'>new user? <a href="/register">register</a></h3>
+                <input className='submit' type="submit" value="Login"/>
             </form>
         </div>
     )

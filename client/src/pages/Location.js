@@ -3,6 +3,7 @@ import { useState , useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
 import gif from './images/content_Loading-Loop-1.gif'
+import '../components/card.css'
 
 const Location = () => {
     const navigate = useNavigate();
@@ -32,10 +33,11 @@ const Location = () => {
         <>
         {
             loading ?
-                    <div>
+                    <div className='con'>
                         {countries.map((country) => (
-                            <div>
+                            <div className='location'>
                                 <img src={`https://flagcdn.com/w160/${country}.png`} onClick={ () =>  handleChange(country)}  alt=""/>  <br/>
+                                {/* <hr/> */}
                             </div>
                         ))}
                     </div>

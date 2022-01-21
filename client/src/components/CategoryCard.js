@@ -25,17 +25,22 @@ const CategoryCard = ({headline}) => {
     
 
     return (
-        <div>
+        <div className="card">
             <img className="cardimg" src={headline.images} alt="" />
-            <h3>{headline.title}</h3>
-            {headline.author && <h5>Author - {headline.author}</h5>}
-            <h5>{headline.decription}</h5>
-            <h5>published - {headline.time.substring(0,10)}</h5>
-            <button type="button" > 
-                <a href={headline["read-more"]} rel="noreferrer" target="_blank" >View More...</a>
-            </button>
+            <div className="logo">
+                { headline._id === undefined && <button className="add" type="button" onClick={onAdd} ><i class="far fa-bookmark"></i></button>}
+            </div>
 
-            { headline._id === undefined && <input type="button" value ="ADD" onClick={onAdd} />}
+            <h5 className="publish">published - {headline.time.substring(0,10)}</h5>
+            {headline.author && <h5 className="author">Author - {headline.author}</h5>}
+            <div className="title">
+                <h3 className="title-1">{headline.title}</h3>
+                <h5 className="description">{headline.decription}</h5>
+                {/* <button type="button" >  */}
+                    <a className="more" href={headline["read-more"]} rel="noreferrer" target="_blank" >View More...</a>
+                {/* </button> */}
+            </div>
+
         </div>
     )
 }

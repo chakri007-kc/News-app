@@ -33,10 +33,10 @@ const Categories = () => {
           <>
         {
             loading ?
-                    <div>
+                    <div className='con'>
                         {categories.map((category) => (
-                            <div>
-                                <h2 onClick={ () =>  handleChange(category)} > {category} </h2>  <br/>
+                            <div className='location'>
+                                <h2 className='cate' onClick={ () =>  handleChange(category)} > {category} </h2>  <br/>
                             </div>
                         ))}
                     </div>

@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
-// import './App.css';
+import './App.css';
 import Trending from './pages/Trending';
 import Location from './pages/Location';
 import Country from './pages/Country';

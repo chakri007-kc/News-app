@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import './register.css'
+
 
 const Register = () => {
     const navigate = useNavigate();
@@ -31,13 +33,14 @@ const Register = () => {
 
 
     return (
-        <div>
-            <h1>Register</h1>
+        <div className="register">
+            <h1 className="title1">Register</h1>
             <form onSubmit={registerUser}>
-                <input type="text" placeholder="name" value={name} onChange={(e)=> setname(e.target.value)} /> <br/>
-                <input type="text" placeholder="email" value={email} onChange={(e)=> setemail(e.target.value)} /> <br/>
-                <input type="password" placeholder="password" value={password} onChange={(e)=> setpassword(e.target.value)} /> <br/>
-                <input type="submit" value="Register"/>
+                <input className="name" type="text" placeholder="name" size={30} value={name} onChange={(e)=> setname(e.target.value)} /> <br/>
+                <input className="email" type="text" placeholder="email" size={30} value={email} onChange={(e)=> setemail(e.target.value)} /> <br/>
+                <input className="password" type="password" placeholder="password" size={30} value={password} onChange={(e)=> setpassword(e.target.value)} /> <br/>
+                <h3 className='shift'>already registered? <a href="/login">login</a> </h3>
+                <input className="submit" type="submit" value="Register"/>
             </form>
         </div>
     )

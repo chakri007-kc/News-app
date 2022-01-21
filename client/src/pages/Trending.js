@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import Card from '../components/Card';
 import gif from './images/content_Loading-Loop-1.gif'
+import '../components/card.css'
 
 const Trending = () => {
 
@@ -26,9 +27,12 @@ const Trending = () => {
          <>
         {
             loading ?
-             <div>
+             <div className='container'>
                 {headlines.map( (headline , index) => (
-                    <Card key={index} headline={headline}/>
+                    <>
+                        <Card key={index} headline={headline}/>
+                        <hr />
+                    </>
                 ))}
              </div>
              : 

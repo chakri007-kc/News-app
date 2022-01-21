@@ -3,6 +3,7 @@ import { useEffect , useState } from 'react'
 import axios from 'axios'
 import Card from '../components/Card'
 import gif from './images/content_Loading-Loop-1.gif';
+import '../components/card.css'; 
 
 const Country = () => {
     var k = localStorage.getItem('country')
@@ -26,9 +27,12 @@ const Country = () => {
         
         {
             loading ?
-             <div>
+             <div className='container'>
                 {country.map( (headline , index) => (
-                    <Card key={index} headline={headline}/>
+                    <>
+                        <Card key={index} headline={headline}/>
+                        <hr />
+                    </>
                 ))}
              </div>
              : 

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Card from '../components/Card';
 import gif from './images/content_Loading-Loop-1.gif'
 import CategoryCard from '../components/CategoryCard';
+import '../components/card.css'
 
 const List = () => {
 
@@ -13,9 +14,15 @@ const List = () => {
     const [loading, setloading] = useState(false)
     
     useEffect( () => {
-        populateHeadlines();
+        const k=localStorage.getItem('token');
+        if(k!==null){
+            populateHeadlines();
+        }
+        else{
+            setheadlines([])
+            setloading(true)
+        }
     }, [])
-
 
     const populateHeadlines = async () => {
         const res = await axios.get(`http://localhost:5050/articles`,{
@@ -38,7 +45,7 @@ const List = () => {
             },
         })
         if(res.data.status === 'ok'){
-            populateHeadlines();
+                populateHeadlines();
         }
         else{
             alert(res.data.status);
@@ -51,11 +58,13 @@ const List = () => {
          <>
         {
             loading ?
-             <div>
+             <div className='container'>
                 {headlines.map( (headline , index) => (
                     <div>
                    {headline.card === "1" ?  <Card key={index} headline={headline}/> : <CategoryCard key={index} headline={headline}/> }
-                   <input type="button" value="delete" onClick={() => onDelete(headline._id)}/>
+                   <button className="delete" type="button" onClick={() => onDelete(headline._id)}><i class="far fa-trash-alt"></i></button>
+                   {/* <input type="button" value="delete" onClick={() => onDelete(headline._id)}/> */}
+                   <hr />
                     </div>
 
                 ))}

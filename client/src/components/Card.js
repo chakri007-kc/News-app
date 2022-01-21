@@ -33,18 +33,25 @@ const Card = ({headline}) => {
 
 
     return (
-        <div>
+        <div className="card">
             <img className="cardimg" src={headline.urlToImage} alt={headline.source.name}/>
-            <img className="" src={`https://logo.clearbit.com/${s}`} alt=""/>
-            {/* {s} */}
-            <h3>{headline.title}</h3>
-            {headline.author && <h5>Author - {headline.author}</h5>}
-            <h5>{headline.description}</h5>
-            <h5>published - {headline.publishedAt.substring(0,10)}</h5>
-            <button type="button" > 
-                <a href={headline.url} rel="noreferrer" target="_blank" >View More...</a>
-            </button>
-            { headline._id === undefined && <input type="button" value ="ADD" onClick={onAdd} />}
+            <div className="logo">
+                <img className="logoimg" src={`https://logo.clearbit.com/${s}`} alt=""/>
+                { headline._id === undefined && <button className="add" type="button" onClick={onAdd} ><i class="far fa-bookmark"></i></button>}
+            </div>
+
+
+              {/* {s} */}
+            <h5 className="publish">published - {headline.publishedAt.substring(0,10)}</h5>
+            {headline.author && <h5 className="author" >Author - {headline.author}</h5>}
+            <div className="title">
+                <h3 className="title-1" >{headline.title}</h3>
+                <h5 className="description" >{headline.description}</h5>
+                {/* <button className="more" type="button" >  */}
+                    <a className="more"  href={headline.url} rel="noreferrer" target="_blank" >View More...</a>
+                {/* </button> */}
+            </div>
+            {/* <hr /><hr /><hr /> */}
         </div>
     )
 }
