@@ -15,7 +15,7 @@ const CategoryCard = ({headline}) => {
 
         const article = headline;
         article.card = "2";
-        const res = await axios.post("http://localhost:5050/articles/add",article ,{
+        const res = await axios.post("https://news-app-008.herokuapp.com/articles/add",article ,{
             headers: {
                 "auth-token" : localStorage.getItem("token")
             },

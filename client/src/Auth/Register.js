@@ -3,6 +3,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import './register.css'
+import { Link } from 'react-router-dom'
 
 
 const Register = () => {
@@ -19,7 +20,7 @@ const Register = () => {
             email,
             password
         }
-        const res = await axios.post('http://localhost:5050/register',newUser)
+        const res = await axios.post('https://news-app-008.herokuapp.com/register',newUser)
         console.log(res.data)
         console.log(res)
         if(res.data.status === "ok"){
@@ -39,7 +40,7 @@ const Register = () => {
                 <input className="name" type="text" placeholder="name" size={30} value={name} onChange={(e)=> setname(e.target.value)} /> <br/>
                 <input className="email" type="text" placeholder="email" size={30} value={email} onChange={(e)=> setemail(e.target.value)} /> <br/>
                 <input className="password" type="password" placeholder="password" size={30} value={password} onChange={(e)=> setpassword(e.target.value)} /> <br/>
-                <h3 className='shift'>already registered? <a href="/login">login</a> </h3>
+                <h3 className='shift'>already registered? <Link to="/login">Login</Link> </h3>
                 <input className="submit" type="submit" value="Register"/>
             </form>
         </div>

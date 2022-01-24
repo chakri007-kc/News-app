@@ -3,6 +3,7 @@ import { useState , useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
 import gif from './images/content_Loading-Loop-1.gif'
+import Navbar from './Navbar'
 
 const Categories = () => {
 
@@ -31,6 +32,7 @@ const Categories = () => {
     return (
 
           <>
+          <Navbar/>
         {
             loading ?
                     <div className='con'>

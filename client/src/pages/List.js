@@ -6,6 +6,7 @@ import Card from '../components/Card';
 import gif from './images/content_Loading-Loop-1.gif'
 import CategoryCard from '../components/CategoryCard';
 import '../components/card.css'
+import Navbar from './Navbar';
 
 const List = () => {
 
@@ -25,7 +26,7 @@ const List = () => {
     }, [])
 
     const populateHeadlines = async () => {
-        const res = await axios.get(`http://localhost:5050/articles`,{
+        const res = await axios.get(`https://news-app-008.herokuapp.com/articles`,{
             headers: {
                 "auth-token" : localStorage.getItem("token")
             },
@@ -39,7 +40,7 @@ const List = () => {
     }
 
     const onDelete = async(id) => {
-        const res = await axios.delete(`http://localhost:5050/articles/delete/${id}`,{
+        const res = await axios.delete(`https://news-app-008.herokuapp.com/articles/delete/${id}`,{
               headers: {
                 "auth-token" : localStorage.getItem("token")
             },
@@ -56,6 +57,7 @@ const List = () => {
 
     return (
          <>
+         <Navbar/>
         {
             loading ?
              <div className='container'>

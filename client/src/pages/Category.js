@@ -4,6 +4,7 @@ import axios from 'axios'
 import CategoryCard from '../components/CategoryCard'
 import gif from './images/content_Loading-Loop-1.gif';
 import '../components/card.css'
+import Navbar from './Navbar';
 const Category = () => {
 
     var k = localStorage.getItem('category')
@@ -27,6 +28,7 @@ const Category = () => {
 
     return (
         <>
+        <Navbar/>
         {
             loading ?
              <div className='container'>

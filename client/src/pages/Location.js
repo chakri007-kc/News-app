@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import axios from 'axios'
 import gif from './images/content_Loading-Loop-1.gif'
 import '../components/card.css'
+import Navbar from './Navbar'
 
 const Location = () => {
     const navigate = useNavigate();
@@ -31,6 +32,7 @@ const Location = () => {
     return (
 
         <>
+        <Navbar/>
         {
             loading ?
                     <div className='con'>

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Card from '../components/Card';
 import gif from './images/content_Loading-Loop-1.gif'
 import '../components/card.css'
+import Navbar from './Navbar';
 
 const Trending = () => {
 
@@ -25,6 +26,7 @@ const Trending = () => {
 
     return (
          <>
+         <Navbar/>
         {
             loading ?
              <div className='container'>

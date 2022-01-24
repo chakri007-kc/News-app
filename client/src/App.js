@@ -17,7 +17,7 @@ function App() {
   return (
       <BrowserRouter>
         <div className="App">
-            { (k !== "/login" && k !== "/register" ) && <Navbar />}
+            {/* { (k !== "/login" && k !== "/register" ) && <Navbar />} */}
             <Routes>
               <Route path='/' element={<Trending />}/>
               {/* <Route path='/trending' element={<Trending />}/> */}

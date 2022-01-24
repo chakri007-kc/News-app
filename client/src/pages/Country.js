@@ -4,6 +4,7 @@ import axios from 'axios'
 import Card from '../components/Card'
 import gif from './images/content_Loading-Loop-1.gif';
 import '../components/card.css'; 
+import Navbar from './Navbar';
 
 const Country = () => {
     var k = localStorage.getItem('country')
@@ -24,7 +25,7 @@ const Country = () => {
 
     return (
         <>
-        
+        <Navbar/>
         {
             loading ?
              <div className='container'>

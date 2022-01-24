@@ -3,7 +3,7 @@ import { useState,useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import './register.css'
-
+import { Link } from 'react-router-dom'
 
 const Login = () => {
 
@@ -18,7 +18,7 @@ const Login = () => {
             email,
             password
         }
-        const res = await axios.post('http://localhost:5050/login',newUser)
+        const res = await axios.post('https://news-app-008.herokuapp.com/login',newUser)
         // console.log(res.data)
         if(res.data.status === "ok"){
             localStorage.setItem('token',res.data.token)
@@ -39,7 +39,7 @@ const Login = () => {
             <form onSubmit={loginUser}>
                 <input className='email-1' type="text" placeholder="email" size={30} value={email} onChange={(e)=> setemail(e.target.value)} /> <br/>
                 <input className='password' type="password" placeholder="password" size={30} value={password} onChange={(e)=> setpassword(e.target.value)} /> <br/>
-                <h3 className='shift'>new user? <a href="/register">register</a></h3>
+                <h3 className='shift'>new user? <Link to="/register">Register</Link></h3>
                 <input className='submit' type="submit" value="Login"/>
             </form>
         </div>
